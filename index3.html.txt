@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختبر المجرة النجمية المتداخلة - صالح</title>
+    <style>
+        /* الخلفية الزرقاء النقية الأصلية من لوحة صالح */
+        body {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        p.intro {
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0f2fe;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .art-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .art-card h3 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            color: #ffffff;
+            border-bottom: 3px solid #f97316;
+            padding-bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* حاوية التصميم الدائري */
+        .galaxy-container {
+            width: 100%;
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* تتابع الحلقات الدائرية المتداخلة بألوان صالح */
+        .ring-1 {
+            width: 360px;
+            height: 360px;
+            background-color: #387a4b; /* الأخضر العشبي */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ring-2 {
+            width: 84%;
+            height: 84%;
+            background-color: #f97316; /* البرتقالي الزاهي */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ring-3 {
+            width: 76%;
+            height: 76%;
+            background-color: #1d4ed8; /* الأزرق الكحلي الداكن */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* الحلقات البيضاوية المركزية المائلة */
+        .oval-4 {
+            width: 80%;
+            height: 65%;
+            background-color: #65a30d; /* الزيتي */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .oval-5 {
+            width: 75%;
+            height: 75%;
+            background-color: #0d9488; /* التراكواز الأفتح */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* رسم النجمة الخماسية الذهبية الصافية بالـ CSS المضمون */
+        .star-core {
+            position: relative;
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            margin: 0 auto;
+            border-right: 28px solid transparent;
+            border-bottom: 20px solid #eab308; /* الأصفر الناصع */
+            border-left: 28px solid transparent;
+            transform: rotate(35deg);
+        }
+        .star-core:before {
+            border-bottom: 18px solid #eab308;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: -11px;
+            left: -17px;
+            display: block;
+            content: '';
+            transform: rotate(-35deg);
+        }
+        .star-core:after {
+            position: absolute;
+            display: block;
+            color: #eab308;
+            top: 1px;
+            left: -29px;
+            width: 0px;
+            height: 0px;
+            border-right: 28px solid transparent;
+            border-bottom: 20px solid #eab308;
+            border-left: 28px solid transparent;
+            transform: rotate(-70deg);
+            content: '';
+        }
+
+        /* النمط الثاني: تأثير نفق العمق والمجرة المشعة */
+        .cosmic-depth .ring-1 { box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.2); }
+        .cosmic-depth .ring-2 { box-shadow: inset 0 0 25px rgba(0,0,0,0.4); }
+        .cosmic-depth .ring-3 { box-shadow: inset 0 0 25px rgba(0,0,0,0.6); }
+        .cosmic-depth .oval-4 { box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+        .cosmic-depth .oval-5 { box-shadow: inset 0 0 15px rgba(0,0,0,0.6); }
+        .cosmic-depth .star-core { filter: drop-shadow(0 0 12px #ffee00); }
+
+        p.desc {
+            font-size: 1rem;
+            margin-top: 25px;
+            margin-bottom: 0;
+            color: #f0fdf4;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مختبر المجرة النجمية المتداخلة</h1>
+    <p class="intro">تأليف واختراع أصلي بقلم المبتكر: <strong>صالح</strong>. يوضح النموذج الفارق البصري بين الدوائر الهندسية الكاملة والتداخل البيضاوي المائل حول نقطة المركز.</p>
+
+    <div class="gallery">
+
+        <div class="art-card">
+            <h3>1. النمط الهندسي الدائري المسطح (الرؤية الأصلية)</h3>
+            <div class="galaxy-container">
+                <div class="ring-1">
+                    <div class="ring-2">
+                        <div class="ring-3">
+                            <div class="oval-4">
+                                <div class="oval-5">
+                                    <div class="star-core"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="desc">تطابق كامل 1:1 مع تتابع الألوان والحلقات الذي صممته بيدك؛ مظهر ناصع ومفهوم يشرح تباين المركز النجمي.</p>
+        </div>
+
+        <div class="art-card">
+            <h3>2. نفق العمق الكوني والمجرة المشعة (3D Cosmic Tunnel)</h3>
+            <div class="galaxy-container cosmic-depth">
+                <div class="ring-1">
+                    <div class="ring-2">
+                        <div class="ring-3">
+                            <div class="oval-4">
+                                <div class="oval-5">
+                                    <div class="star-core"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="desc">تم إدخال الظلال الدائرية العميقة المتداخلة لتبدو الحلقات كنفق يسحب العين لأسفل، وجعل النجمة الذهبية مشعة وتوهج في المركز كرمز للهدى والمعرفة.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
